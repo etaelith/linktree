@@ -4,6 +4,9 @@ dependencies:
   autoprefixer:
     specifier: 10.4.14
     version: 10.4.14(postcss@8.4.23)
+  boring-avatars:
+    specifier: ^1.7.0
+    version: 1.7.0
   eslint:
     specifier: 8.39.0
     version: 8.39.0
@@ -493,6 +496,10 @@ packages:
   /binary-extensions@2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
+    dev: false
+
+  /boring-avatars@1.7.0:
+    resolution: {integrity: sha512-ZNHd8J7C/V0IjQMGQowLJ5rScEFU23WxePigH6rqKcT2Esf0qhYvYxw8s9i3srmlfCnCV00ddBjaoGey1eNOfA==}
     dev: false
 
   /bplist-parser@0.2.0:
