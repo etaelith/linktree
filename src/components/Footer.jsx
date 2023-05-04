@@ -1,10 +1,8 @@
-import React from "react";
-
 const Footer = () => {
   return (
-    <div className="flex flex-col justify-center items-center h-1/5">
-      Footer
-    </div>
+    <footer className="flex flex-col justify-center items-center h-1/5 bg-slate-950 opacity-50">
+      <p className="text-white">Footer</p>
+    </footer>
   );
 };
 
