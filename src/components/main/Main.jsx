@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 const webs = [
   {
@@ -28,8 +27,8 @@ const webs = [
 ];
 const Main = () => {
   return (
-    <div className="h-3/5 max-w-2xl m-auto p-4">
-      <ul className="flex flex-col justify-center items-center h-full gap-6">
+    <div className="w-80 sm:w-2/5 m-auto p-4">
+      <ul className="flex flex-col justify-center items-center gap-6">
         {webs.map((item, index) => (
           <li
             key={index}
