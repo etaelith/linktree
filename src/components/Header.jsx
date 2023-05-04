@@ -2,7 +2,7 @@ import Avatar from "boring-avatars";
 
 const Header = () => {
   return (
-    <div className="flex flex-col justify-center items-center w-full h-1/5 bg-slate-950 opacity-50">
+    <div className="flex flex-col justify-center items-center w-full h-1/5 bg-slate-950 bg-opacity-50">
       <div>
         <Avatar
           size={96}

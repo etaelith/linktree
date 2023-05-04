@@ -28,12 +28,12 @@ const webs = [
 ];
 const Main = () => {
   return (
-    <div className="h-3/5 max-w-2xl m-auto p-4 opacity-60">
+    <div className="h-3/5 max-w-2xl m-auto p-4">
       <ul className="flex flex-col justify-center items-center h-full gap-6">
         {webs.map((item, index) => (
           <li
             key={index}
-            className="w-full bg-black h-12 flex items-center justify-center"
+            className="w-full flex items-center justify-center bg-black bg-opacity-60 h-12 hover:bg-opacity-80 hover:transform hover:translate-y-[-5px] hover:translate-x-[-5px] hover:scale-[1.05] transition-all duration-300 ease-out"
           >
             <a href={item.link} target="_blank" className="w-full">
               <h2 className="text-white text-center">{item.name}</h2>
