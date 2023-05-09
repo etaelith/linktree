@@ -5,7 +5,7 @@ const Header = () => {
     <div className="flex flex-col justify-center items-center w-full h-30% bg-slate-950 bg-opacity-50">
       <div>
         <Avatar
-          size={96}
+          size={48}
           name="Maria Mitchell"
           variant="beam"
           colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
