@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import Links from "@/components/main/Links";
+import List from "@/components/main/List";
 
 const Main = () => {
   return (
     <div className="w-80 sm:w-2/5 m-auto p-4">
-      <Links />
+      <List />
     </div>
   );
 };

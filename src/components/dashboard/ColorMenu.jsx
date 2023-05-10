@@ -23,7 +23,7 @@ const ColorMenu = () => {
   };
   return (
     <div className="flex flex-col border-2 rounded-md p-2 max-w-sm text-black">
-      <form className="">
+      <form className="flex flex-col justify-center align-middle gap-2">
         <div className="flex justify-around">
           <div className="flex">
             <label htmlFor="buttonColor">botón: </label>
@@ -67,6 +67,9 @@ const ColorMenu = () => {
             onChange={(e) => setBackgroundImage(e.target.value)}
           />
         </div>
+        <button className="mx-auto text-center w-24 hover:bg-black hover:text-white rounded-md">
+          submit
+        </button>
       </form>
     </div>
   );
