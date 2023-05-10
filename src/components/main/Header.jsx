@@ -1,10 +1,12 @@
 import Avatar from "boring-avatars";
 import Navigation from "../Navigation";
 
-const Header = () => {
-  return (
+const defaultValue = { defaultText: "#000000", defaultBg: "#fff" };
+const Header = ({ data }) => {
+  const colors = !data ? defaultValue : data;
+  const element = (
     <div className="flex flex-col lg:flex-row justify-center items-center w-auto h-30% bg-slate-950 bg-opacity-50 lg:border-2 lg:rounded-md lg:m-4">
-      <Navigation />
+      <Navigation colors={colors} />
       <div className="w-24 sm:w-28 lg:w-36">
         <Avatar
           size="100%"
@@ -20,6 +22,10 @@ const Header = () => {
       </div>
     </div>
   );
+  if (!data) {
+    return element;
+  }
+  return;
 };
 
 export default Header;

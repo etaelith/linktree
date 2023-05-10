@@ -37,6 +37,7 @@ const useColorContext = () => {
 
   useEffect(() => {
     getColorsFromLocalStorage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSaveColors = (buttonColor, textColor, backgroundImage) => {

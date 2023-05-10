@@ -1,25 +1,27 @@
 "use client";
-import { ColorContext } from "@/context/ColorProvider";
 import { hexToRgb } from "@/utils/hexColor";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useContext } from "react";
-import BotonLink from "./BotonLink";
 
-const Navigation = () => {
+import { usePathname } from "next/navigation";
+
+import BotonLink from "./BotonLink";
+const defaultColorState = {
+  backgroundImage: "asdsad",
+  buttonColor: "#000000",
+  textColor: "#ffffff",
+};
+const Navigation = ({ state }) => {
   const router = usePathname();
-  const { state } = useContext(ColorContext);
-  const { buttonColor, textColor } = state;
+  const colorState = state || defaultColorState;
   const id = router.split("/")[1];
   const element = (
     <BotonLink
-      href={`${router === "/5" ? `/${id}/dashboard` : "/5"}`}
+      href={`${router === `/${id}` ? `/${id}/dashboard` : `/${id}`}`}
       className=""
       style={{
-        background: `${hexToRgb(buttonColor, 0.6)}`,
-        color: `${hexToRgb(textColor)}`,
+        background: `${hexToRgb(colorState.buttonColor, 0.6)}`,
+        color: `${hexToRgb(colorState.textColor)}`,
       }}
-      text={`${router === "/5" ? "dashboard" : "View"}`}
+      text={`${router === `/${id}` ? "dashboard" : "View"}`}
     />
   );
   return (
@@ -29,8 +31,8 @@ const Navigation = () => {
           href={`${router === "/" ? `/5/dashboard` : "/"}`}
           className=""
           style={{
-            background: `${hexToRgb(buttonColor, 0.6)}`,
-            color: `${hexToRgb(textColor)}`,
+            background: `${hexToRgb(colorState.buttonColor, 0.6)}`,
+            color: `${hexToRgb(colorState.textColor)}`,
           }}
           text={`${router === "/" ? "dashboard" : "Home"}`}
         />

@@ -4,7 +4,7 @@ import { ItemsContext } from "@/context/ItemsProvider";
 import { hexToRgb } from "@/utils/hexColor";
 import { useContext, useEffect, useState } from "react";
 
-const List = ({ id }) => {
+const List = () => {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);

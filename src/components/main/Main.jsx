@@ -11,7 +11,7 @@ const Main = ({ id }) => {
   }
   return (
     <div className="w-80 sm:w-2/5 m-auto p-4">
-      <List id={id} />
+      <List />
     </div>
   );
 };

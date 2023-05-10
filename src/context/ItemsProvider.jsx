@@ -4,7 +4,7 @@ import useLocalStorageState from "@/hooks/useLocalStorageState";
 
 export const ItemsContext = createContext();
 
-export const ItemsProvider = ({ children }) => {
+export const ItemsProvider = ({ children, params }) => {
   const [inputValues, setInvputValues] = useState({ name: "", link: "" });
   const [items, setItems, removeItem] = useLocalStorageState("webs", []);
   const handleSubmit = (e) => {
