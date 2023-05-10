@@ -1,19 +1,12 @@
-"use client";
-import { ColorContext } from "@/context/ColorProvider";
-import { useContext, useRef } from "react";
+import useColorContext from "@/hooks/useColorContext";
+import { useRef } from "react";
 
 const ColorMenu = () => {
-  const {
-    buttonColor,
-    setButtonColor,
-    textColor,
-    setTextColor,
-    backgroundImage,
-    setBackgroundImage,
-  } = useContext(ColorContext);
-
+  const { state, handleSaveColors } = useColorContext();
+  const { buttonColor, textColor, backgroundImage } = state;
   const buttonColorInputRef = useRef();
   const buttonTextInputRef = useRef();
+
   const handleButtonClickColor = () => {
     buttonColorInputRef.current.click();
   };
@@ -21,10 +14,12 @@ const ColorMenu = () => {
   const handleTextClickColor = () => {
     buttonTextInputRef.current.click();
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(textColor, backgroundImage, buttonColor);
+    handleSaveColors(buttonColor, textColor, backgroundImage);
   };
+
   return (
     <div className="flex flex-col border-2 rounded-md p-2 max-w-sm text-black">
       <form
@@ -44,7 +39,9 @@ const ColorMenu = () => {
               type="color"
               id="buttonColor"
               value={buttonColor}
-              onChange={(e) => setButtonColor(e.target.value)}
+              onChange={(e) =>
+                handleSaveColors(e.target.value, textColor, backgroundImage)
+              }
               hidden
             />
           </div>
@@ -60,7 +57,9 @@ const ColorMenu = () => {
               type="color"
               id="textColor"
               value={textColor}
-              onChange={(e) => setTextColor(e.target.value)}
+              onChange={(e) =>
+                handleSaveColors(buttonColor, e.target.value, backgroundImage)
+              }
               hidden
             />
           </div>
@@ -72,7 +71,9 @@ const ColorMenu = () => {
             type="text"
             id="backgroundImage"
             value={backgroundImage}
-            onChange={(e) => setBackgroundImage(e.target.value)}
+            onChange={(e) =>
+              handleSaveColors(buttonColor, textColor, e.target.value)
+            }
           />
         </div>
         <button

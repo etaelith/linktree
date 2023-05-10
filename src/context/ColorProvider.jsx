@@ -1,23 +1,32 @@
 "use client";
-import { createContext, useState } from "react";
+import { createContext, useReducer } from "react";
 
 export const ColorContext = createContext();
 
+const initialState = {
+  buttonColor: "#f0f0f0",
+  textColor: "#000000",
+  backgroundImage: "",
+};
+
+const colorReducer = (state, action) => {
+  switch (action.type) {
+    case "SET_BUTTON_COLOR":
+      return { ...state, buttonColor: action.payload };
+    case "SET_TEXT_COLOR":
+      return { ...state, textColor: action.payload };
+    case "SET_BACKGROUND_IMAGE":
+      return { ...state, backgroundImage: action.payload };
+    default:
+      return state;
+  }
+};
+
 const ColorProvider = ({ children }) => {
-  const [buttonColor, setButtonColor] = useState("#f0f0f0");
-  const [textColor, setTextColor] = useState("#000");
-  const [backgroundImage, setBackgroundImage] = useState("");
+  const [state, dispatch] = useReducer(colorReducer, initialState);
+
   return (
-    <ColorContext.Provider
-      value={{
-        buttonColor,
-        setButtonColor,
-        textColor,
-        setTextColor,
-        backgroundImage,
-        setBackgroundImage,
-      }}
-    >
+    <ColorContext.Provider value={{ state, dispatch }}>
       {children}
     </ColorContext.Provider>
   );
