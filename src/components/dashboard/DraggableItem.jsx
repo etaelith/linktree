@@ -1,9 +1,10 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import Item from "./Item";
 import "@/styles/DraggableItem.css";
+import { ColorContext } from "@/context/ColorProvider";
 const DraggableItem = ({ item, index, moveItem }) => {
   const [isDragOver, setIsDragOver] = useState(false);
-
+  const { textColor, buttonColor } = useContext(ColorContext);
   const ref = useRef(null);
 
   const handleDragStart = (e) => {
@@ -41,7 +42,7 @@ const DraggableItem = ({ item, index, moveItem }) => {
       onDragEnd={handleDragEnd}
       onDragOver={handleDragOver}
       onDrop={handleDrop}
-      className={`py-2 ${isDragOver ? "drag-over" : ""}`}
+      className={`py-2 ${isDragOver ? "drag-over" : ""} `}
     >
       <Item props={item} index={index} />
     </li>
