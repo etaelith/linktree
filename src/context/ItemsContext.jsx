@@ -6,7 +6,7 @@ export const ItemsContext = createContext();
 
 export const ItemsProvider = ({ children }) => {
   const [inputValues, setInvputValues] = useState({ name: "", link: "" });
-  const [items, setItems] = useLocalStorageState("webs", []);
+  const [items, setItems, removeItem] = useLocalStorageState("webs", []);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputValues.name.trim() && inputValues.link.trim()) {
@@ -39,6 +39,7 @@ export const ItemsProvider = ({ children }) => {
         handleSubmit,
         handleInputChange,
         moveItem,
+        removeItem,
       }}
     >
       {children}
