@@ -22,7 +22,7 @@ const ColorMenu = () => {
     buttonTextInputRef.current.click();
   };
   return (
-    <div className="flex flex-col border-2 rounded-md p-2 max-w-sm">
+    <div className="flex flex-col border-2 rounded-md p-2 max-w-sm text-black">
       <form className="">
         <div className="flex justify-around">
           <div className="flex">

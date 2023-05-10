@@ -43,7 +43,7 @@ const DraggableItem = ({ item, index, moveItem }) => {
       onDrop={handleDrop}
       className={`py-2 ${isDragOver ? "drag-over" : ""}`}
     >
-      <Item props={item} />
+      <Item props={item} index={index} />
     </li>
   );
 };

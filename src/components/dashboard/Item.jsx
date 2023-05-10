@@ -1,8 +1,12 @@
 import editIcon from "../../assets/edit.png";
 import Image from "next/image";
-const Item = ({ props }) => {
+
+const Item = ({ props, index }) => {
+  const test = () => {
+    console.log("test", index);
+  };
   return (
-    <div className="flex flex-col justify-start h-32 my-4 pl-4 border-2 rounded-md border-emerald-500 gap-4">
+    <div className="relative flex flex-col justify-start h-32 my-4 pl-4 border-2 rounded-md border-emerald-500 gap-4">
       <div className="flex gap-2 pt-2">
         <h2>{props.name}</h2>
         <Image src={editIcon} alt="edit" width={20} height={20} />
@@ -11,6 +15,12 @@ const Item = ({ props }) => {
         <h3>{props.link}</h3>
         <Image src={editIcon} alt="edit" width={20} height={20} />
       </div>
+      <button
+        className="absolute top-0 right-0 mr-4 mt-4 text-red-600"
+        onClick={test}
+      >
+        delete
+      </button>
     </div>
   );
 };
